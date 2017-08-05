@@ -20,17 +20,18 @@ class ViewController: UIViewController {
         let circleBox = Checkbox(frame: CGRect(x: 50, y: 50, width: 25, height: 25))
         circleBox.borderStyle = .circle
         circleBox.checkmarkStyle = .circle
-        circleBox.borderWidth = 0.5
+        circleBox.borderWidth = 1
         circleBox.borderColor = .blue
+        circleBox.checkmarkSize = 0.8
         circleBox.checkmarkColor = .blue
         circleBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
         view.addSubview(circleBox)
 
         // square box
-        let squareBox = Checkbox(frame: CGRect(x: 110, y: 50, width: 25, height: 25))
+        let squareBox = Checkbox(frame: CGRect(x: 50, y: 110, width: 25, height: 25))
         squareBox.borderStyle = .square
         squareBox.checkmarkStyle = .square
-        squareBox.borderWidth = 0.5
+        squareBox.borderWidth = 1
 
         // Closure example
         squareBox.valueChanged = { (value) in
