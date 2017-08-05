@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 public class Checkbox: UIControl {
 
+    // MARK: - Enums
     public enum CheckmarkStyle {
         case square
         case circle
@@ -26,16 +26,32 @@ public class Checkbox: UIControl {
     public var checkmarkStyle: CheckmarkStyle = .square
     public var borderShape: BorderShape = .square
 
-    @IBInspectable public var borderWidth: CGFloat = 2
-    @IBInspectable public var checkmarkWidth: CGFloat = 0.5
+    public var borderWidth: CGFloat = 2
+    public var checkmarkWidth: CGFloat = 0.5
 
-    @IBInspectable var borderColor: UIColor = UIColor.black
-    @IBInspectable var centerColor: UIColor = UIColor.black
+    public var borderColor: UIColor = UIColor.black
+    public var centerColor: UIColor = UIColor.black
 
-    @IBInspectable var isChecked: Bool = false {
+    public var valueChanged: ((_ isChecked: Bool) -> Void)?
+
+    public var isChecked: Bool = false {
         didSet { setNeedsDisplay() }
     }
 
+    // MARK: - Lifecycle
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
+        addGestureRecognizer(tapGesture)
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
+        addGestureRecognizer(tapGesture)
+    }
+
+    // MARK: - DrawRect
     override public func draw(_ rect: CGRect) {
         drawBorder(shape: borderShape, in: rect)
         if isChecked {
@@ -103,6 +119,13 @@ public class Checkbox: UIControl {
                                   width: width,
                                   height: height)
         return adjustedRect
+    }
+
+    // MARK: - Events
+    @objc private func handleTapGesture(recognizer: UITapGestureRecognizer) {
+        isChecked = !isChecked
+        valueChanged?(isChecked)
+        sendActions(for: .valueChanged)
     }
 
 }
