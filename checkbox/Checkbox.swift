@@ -17,20 +17,22 @@ public class Checkbox: UIControl {
         case circle
     }
 
-    public enum BorderShape: Int {
+    public enum BorderStyle: Int {
         case square
         case circle
     }
 
     // MARK: - Properties
     public var checkmarkStyle: CheckmarkStyle = .square
-    public var borderShape: BorderShape = .square
+    public var borderStyle: BorderStyle = .square
 
     public var borderWidth: CGFloat = 2
     public var checkmarkWidth: CGFloat = 0.5
 
     public var borderColor: UIColor = UIColor.black
-    public var centerColor: UIColor = UIColor.black
+    public var checkmarkColor: UIColor = UIColor.black
+
+    public var increasedTouchRadius: CGFloat = 5
 
     public var valueChanged: ((_ isChecked: Bool) -> Void)?
 
@@ -41,26 +43,28 @@ public class Checkbox: UIControl {
     // MARK: - Lifecycle
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
         addGestureRecognizer(tapGesture)
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        backgroundColor = .white
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
         addGestureRecognizer(tapGesture)
     }
 
     // MARK: - DrawRect
     override public func draw(_ rect: CGRect) {
-        drawBorder(shape: borderShape, in: rect)
+        drawBorder(shape: borderStyle, in: rect)
         if isChecked {
             drawCheckmark(style: checkmarkStyle, in: rect)
         }
     }
 
     // MARK: - Borders
-    private func drawBorder(shape: BorderShape, in rect: CGRect) {
+    private func drawBorder(shape: BorderStyle, in rect: CGRect) {
         switch shape {
         case .circle:
             circleBorder(rect: rect)
@@ -72,7 +76,7 @@ public class Checkbox: UIControl {
     private func squareBorder(rect: CGRect) {
         let rectanglePath = UIBezierPath(rect: rect)
         borderColor.setStroke()
-        rectanglePath.lineWidth = borderWidth
+        rectanglePath.lineWidth = borderWidth * 2
         rectanglePath.stroke()
     }
 
@@ -100,13 +104,13 @@ public class Checkbox: UIControl {
 
     private func circleCheckmark(rect: CGRect) {
         let ovalPath = UIBezierPath(ovalIn: checkmarkRect(in: rect))
-        centerColor.setFill()
+        checkmarkColor.setFill()
         ovalPath.fill()
     }
 
     private func squareCheckmark(rect: CGRect) {
         let path = UIBezierPath(rect: checkmarkRect(in: rect))
-        centerColor.setFill()
+        checkmarkColor.setFill()
         path.fill()
     }
 
@@ -121,11 +125,21 @@ public class Checkbox: UIControl {
         return adjustedRect
     }
 
-    // MARK: - Events
+    // MARK: - Touch
     @objc private func handleTapGesture(recognizer: UITapGestureRecognizer) {
         isChecked = !isChecked
         valueChanged?(isChecked)
         sendActions(for: .valueChanged)
+    }
+
+    override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let relativeFrame = self.bounds
+        let hitTestEdgeInsets = UIEdgeInsetsMake(-increasedTouchRadius,
+                                                 -increasedTouchRadius,
+                                                 -increasedTouchRadius,
+                                                 -increasedTouchRadius)
+        let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
+        return hitFrame.contains(point)
     }
 
 }
