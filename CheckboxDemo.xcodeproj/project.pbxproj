@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A13488B01F3572BA00354676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13488AF1F3572BA00354676 /* AppDelegate.swift */; };
-		A13488B21F3572BA00354676 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13488B11F3572BA00354676 /* ViewController.swift */; };
-		A13488B51F3572BA00354676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13488B31F3572BA00354676 /* Main.storyboard */; };
-		A13488B71F3572BA00354676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13488B61F3572BA00354676 /* Assets.xcassets */; };
-		A13488BA1F3572BA00354676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13488B81F3572BA00354676 /* LaunchScreen.storyboard */; };
+		A13488CB1F3572EE00354676 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13488C31F3572EE00354676 /* ViewController.swift */; };
+		A13488CC1F3572EE00354676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13488C41F3572EE00354676 /* Assets.xcassets */; };
+		A13488CD1F3572EE00354676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13488C51F3572EE00354676 /* LaunchScreen.storyboard */; };
+		A13488CE1F3572EE00354676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13488C71F3572EE00354676 /* Main.storyboard */; };
+		A13488CF1F3572EE00354676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13488C91F3572EE00354676 /* AppDelegate.swift */; };
+		A13488D31F35735300354676 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13488D21F35735300354676 /* Checkbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A13488AC1F3572BA00354676 /* Checkbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checkbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A13488AF1F3572BA00354676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A13488B11F3572BA00354676 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A13488B41F3572BA00354676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A13488B61F3572BA00354676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A13488B91F3572BA00354676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A13488BB1F3572BA00354676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13488AC1F3572BA00354676 /* CheckboxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckboxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13488C31F3572EE00354676 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A13488C41F3572EE00354676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A13488C61F3572EE00354676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A13488C81F3572EE00354676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A13488C91F3572EE00354676 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A13488CA1F3572EE00354676 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13488D21F35735300354676 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +40,8 @@
 		A13488A31F3572B900354676 = {
 			isa = PBXGroup;
 			children = (
-				A13488AE1F3572BA00354676 /* Checkbox */,
+				A13488C21F3572EE00354676 /* demo */,
+				A13488D11F35730600354676 /* checkbox */,
 				A13488AD1F3572BA00354676 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +49,38 @@
 		A13488AD1F3572BA00354676 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A13488AC1F3572BA00354676 /* Checkbox.app */,
+				A13488AC1F3572BA00354676 /* CheckboxDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A13488AE1F3572BA00354676 /* Checkbox */ = {
+		A13488C21F3572EE00354676 /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				A13488AF1F3572BA00354676 /* AppDelegate.swift */,
-				A13488B11F3572BA00354676 /* ViewController.swift */,
-				A13488B31F3572BA00354676 /* Main.storyboard */,
-				A13488B61F3572BA00354676 /* Assets.xcassets */,
-				A13488B81F3572BA00354676 /* LaunchScreen.storyboard */,
-				A13488BB1F3572BA00354676 /* Info.plist */,
+				A13488C31F3572EE00354676 /* ViewController.swift */,
+				A13488C41F3572EE00354676 /* Assets.xcassets */,
+				A13488C51F3572EE00354676 /* LaunchScreen.storyboard */,
+				A13488C71F3572EE00354676 /* Main.storyboard */,
+				A13488C91F3572EE00354676 /* AppDelegate.swift */,
+				A13488CA1F3572EE00354676 /* Info.plist */,
 			);
-			path = Checkbox;
+			path = demo;
+			sourceTree = "<group>";
+		};
+		A13488D11F35730600354676 /* checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				A13488D21F35735300354676 /* Checkbox.swift */,
+			);
+			path = checkbox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A13488AB1F3572BA00354676 /* Checkbox */ = {
+		A13488AB1F3572BA00354676 /* CheckboxDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A13488BE1F3572BA00354676 /* Build configuration list for PBXNativeTarget "Checkbox" */;
+			buildConfigurationList = A13488BE1F3572BA00354676 /* Build configuration list for PBXNativeTarget "CheckboxDemo" */;
 			buildPhases = (
 				A13488A81F3572BA00354676 /* Sources */,
 				A13488A91F3572BA00354676 /* Frameworks */,
@@ -79,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = Checkbox;
+			name = CheckboxDemo;
 			productName = Checkbox;
-			productReference = A13488AC1F3572BA00354676 /* Checkbox.app */;
+			productReference = A13488AC1F3572BA00354676 /* CheckboxDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,17 +102,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Beau Nouvelle";
 				TargetAttributes = {
 					A13488AB1F3572BA00354676 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = RCFBK97QU7;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = A13488A71F3572B900354676 /* Build configuration list for PBXProject "Checkbox" */;
+			buildConfigurationList = A13488A71F3572B900354676 /* Build configuration list for PBXProject "CheckboxDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -114,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A13488AB1F3572BA00354676 /* Checkbox */,
+				A13488AB1F3572BA00354676 /* CheckboxDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -124,9 +136,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13488BA1F3572BA00354676 /* LaunchScreen.storyboard in Resources */,
-				A13488B71F3572BA00354676 /* Assets.xcassets in Resources */,
-				A13488B51F3572BA00354676 /* Main.storyboard in Resources */,
+				A13488CC1F3572EE00354676 /* Assets.xcassets in Resources */,
+				A13488CE1F3572EE00354676 /* Main.storyboard in Resources */,
+				A13488CD1F3572EE00354676 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,28 +149,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13488B21F3572BA00354676 /* ViewController.swift in Sources */,
-				A13488B01F3572BA00354676 /* AppDelegate.swift in Sources */,
+				A13488CF1F3572EE00354676 /* AppDelegate.swift in Sources */,
+				A13488CB1F3572EE00354676 /* ViewController.swift in Sources */,
+				A13488D31F35735300354676 /* Checkbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A13488B31F3572BA00354676 /* Main.storyboard */ = {
+		A13488C51F3572EE00354676 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A13488B41F3572BA00354676 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A13488B81F3572BA00354676 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A13488B91F3572BA00354676 /* Base */,
+				A13488C61F3572EE00354676 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A13488C71F3572EE00354676 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A13488C81F3572EE00354676 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -174,7 +187,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -182,7 +197,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -224,7 +243,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -232,7 +253,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -262,11 +287,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RCFBK97QU7;
-				INFOPLIST_FILE = Checkbox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pearpi.Checkbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -275,18 +301,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RCFBK97QU7;
-				INFOPLIST_FILE = Checkbox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pearpi.Checkbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A13488A71F3572B900354676 /* Build configuration list for PBXProject "Checkbox" */ = {
+		A13488A71F3572B900354676 /* Build configuration list for PBXProject "CheckboxDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A13488BC1F3572BA00354676 /* Debug */,
@@ -295,13 +322,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A13488BE1F3572BA00354676 /* Build configuration list for PBXNativeTarget "Checkbox" */ = {
+		A13488BE1F3572BA00354676 /* Build configuration list for PBXNativeTarget "CheckboxDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A13488BF1F3572BA00354676 /* Debug */,
 				A13488C01F3572BA00354676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
