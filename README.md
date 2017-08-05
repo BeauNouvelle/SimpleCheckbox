@@ -14,6 +14,8 @@ No cocoapods, and no carthage.
 
 Just drag Checkbox.swift into your project to start using it.
 
+**NOTE**: Demo project requires Xcode 9.
+
 
 👩‍🍳 Useage
 ----
