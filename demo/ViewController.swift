@@ -12,14 +12,36 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        addCheckboxSubviews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func addCheckboxSubviews() {
+        // round box
+        let circleBox = Checkbox(frame: CGRect(x: 50, y: 50, width: 25, height: 25))
+        circleBox.borderStyle = .circle
+        circleBox.checkmarkStyle = .circle
+        circleBox.borderWidth = 0.5
+        circleBox.borderColor = .blue
+        circleBox.checkmarkColor = .blue
+        circleBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
+        view.addSubview(circleBox)
+
+        // square box
+        let squareBox = Checkbox(frame: CGRect(x: 110, y: 50, width: 25, height: 25))
+        squareBox.borderStyle = .square
+        squareBox.checkmarkStyle = .square
+        squareBox.borderWidth = 0.5
+
+        // Closure example
+        squareBox.valueChanged = { (value) in
+            print("square checkbox value change: \(value)")
+        }
+        view.addSubview(squareBox)
     }
 
+    // target action example
+    @objc func circleBoxValueChanged(sender: Checkbox) {
+        print("circle box value change: \(sender.isChecked)")
+    }
 
 }
-
