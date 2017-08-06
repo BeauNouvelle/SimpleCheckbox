@@ -43,6 +43,13 @@ class ViewController: UIViewController {
         crossBox.checkmarkStyle = .cross
         crossBox.checkmarkSize = 0.7
         view.addSubview(crossBox)
+
+        // tick
+        let tickBox = Checkbox(frame: CGRect(x: 30, y: 160, width: 25, height: 25))
+        tickBox.borderStyle = .square
+        tickBox.checkmarkStyle = .tick
+        tickBox.checkmarkSize = 0.7
+        view.addSubview(tickBox)
     }
 
     // target action example

@@ -23,6 +23,8 @@ public class Checkbox: UIControl {
         case circle
         /// ╳
         case cross
+        /// ✓
+        case tick
     }
 
     /// Shape of the outside box containing the checkmarks contents.
@@ -156,38 +158,50 @@ public class Checkbox: UIControl {
     // MARK: - Checkmarks
 
     private func drawCheckmark(style: CheckmarkStyle, in rect: CGRect) {
+        let adjustedRect = checkmarkRect(in: rect)
         switch checkmarkStyle {
         case .square:
-            squareCheckmark(rect: rect)
+            squareCheckmark(rect: adjustedRect)
         case .circle:
-            circleCheckmark(rect: rect)
+            circleCheckmark(rect: adjustedRect)
         case .cross:
-            crossCheckmark(rect: rect)
+            crossCheckmark(rect: adjustedRect)
+        case .tick:
+            tickCheckmark(rect: adjustedRect)
         }
     }
 
     private func circleCheckmark(rect: CGRect) {
-        let ovalPath = UIBezierPath(ovalIn: checkmarkRect(in: rect))
+        let ovalPath = UIBezierPath(ovalIn: rect)
         checkmarkColor.setFill()
         ovalPath.fill()
     }
 
     private func squareCheckmark(rect: CGRect) {
-        let path = UIBezierPath(rect: checkmarkRect(in: rect))
+        let path = UIBezierPath(rect: rect)
         checkmarkColor.setFill()
         path.fill()
     }
 
     private func crossCheckmark(rect: CGRect) {
         let bezier4Path = UIBezierPath()
-        let newRect = checkmarkRect(in: rect)
-        bezier4Path.move(to: CGPoint(x: newRect.minX + 0.06250 * newRect.width, y: newRect.minY + 0.06452 * newRect.height))
-        bezier4Path.addLine(to: CGPoint(x: newRect.minX + 0.93750 * newRect.width, y: newRect.minY + 0.93548 * newRect.height))
-        bezier4Path.move(to: CGPoint(x: newRect.minX + 0.93750 * newRect.width, y: newRect.minY + 0.06452 * newRect.height))
-        bezier4Path.addLine(to: CGPoint(x: newRect.minX + 0.06250 * newRect.width, y: newRect.minY + 0.93548 * newRect.height))
+        bezier4Path.move(to: CGPoint(x: rect.minX + 0.06250 * rect.width, y: rect.minY + 0.06452 * rect.height))
+        bezier4Path.addLine(to: CGPoint(x: rect.minX + 0.93750 * rect.width, y: rect.minY + 0.93548 * rect.height))
+        bezier4Path.move(to: CGPoint(x: rect.minX + 0.93750 * rect.width, y: rect.minY + 0.06452 * rect.height))
+        bezier4Path.addLine(to: CGPoint(x: rect.minX + 0.06250 * rect.width, y: rect.minY + 0.93548 * rect.height))
         checkmarkColor.setStroke()
         bezier4Path.lineWidth = checkmarkSize * 2
         bezier4Path.stroke()
+    }
+
+    private func tickCheckmark(rect: CGRect) {
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: rect.minX + 0.04688 * rect.width, y: rect.minY + 0.63548 * rect.height))
+        bezierPath.addLine(to: CGPoint(x: rect.minX + 0.34896 * rect.width, y: rect.minY + 0.95161 * rect.height))
+        bezierPath.addLine(to: CGPoint(x: rect.minX + 0.95312 * rect.width, y: rect.minY + 0.04839 * rect.height))
+        checkmarkColor.setStroke()
+        bezierPath.lineWidth = checkmarkSize * 2
+        bezierPath.stroke()
     }
 
     // MARK: - Size Calculations
