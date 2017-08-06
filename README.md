@@ -40,6 +40,8 @@ After hooking up an outlet you can begin customization.
 
     checkbox.checkmarkStyle = .circle
     checkbox.checkmarkStyle = .square
+    checkbox.checkmarkStyle = .cross
+    checkbox.checkmarkStyle = .tick
     
 ### Events
 There are two methods for detecting when a tap event has occured and the `isChecked` property has changed.
