@@ -21,6 +21,8 @@ public class Checkbox: UIControl {
         case square
         /// ●
         case circle
+        /// ╳
+        case cross
     }
 
     /// Shape of the outside box containing the checkmarks contents.
@@ -159,6 +161,8 @@ public class Checkbox: UIControl {
             squareCheckmark(rect: rect)
         case .circle:
             circleCheckmark(rect: rect)
+        case .cross:
+            crossCheckmark(rect: rect)
         }
     }
 
@@ -172,6 +176,18 @@ public class Checkbox: UIControl {
         let path = UIBezierPath(rect: checkmarkRect(in: rect))
         checkmarkColor.setFill()
         path.fill()
+    }
+
+    private func crossCheckmark(rect: CGRect) {
+        let bezier4Path = UIBezierPath()
+        let newRect = checkmarkRect(in: rect)
+        bezier4Path.move(to: CGPoint(x: newRect.minX + 0.06250 * newRect.width, y: newRect.minY + 0.06452 * newRect.height))
+        bezier4Path.addLine(to: CGPoint(x: newRect.minX + 0.93750 * newRect.width, y: newRect.minY + 0.93548 * newRect.height))
+        bezier4Path.move(to: CGPoint(x: newRect.minX + 0.93750 * newRect.width, y: newRect.minY + 0.06452 * newRect.height))
+        bezier4Path.addLine(to: CGPoint(x: newRect.minX + 0.06250 * newRect.width, y: newRect.minY + 0.93548 * newRect.height))
+        checkmarkColor.setStroke()
+        bezier4Path.lineWidth = checkmarkSize * 2
+        bezier4Path.stroke()
     }
 
     // MARK: - Size Calculations

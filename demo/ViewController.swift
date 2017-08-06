@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     }
 
     func addCheckboxSubviews() {
-        // round box
-        let circleBox = Checkbox(frame: CGRect(x: 50, y: 50, width: 25, height: 25))
+        // circle
+        let circleBox = Checkbox(frame: CGRect(x: 30, y: 40, width: 25, height: 25))
         circleBox.borderStyle = .circle
         circleBox.checkmarkStyle = .circle
         circleBox.borderWidth = 1
@@ -27,17 +27,22 @@ class ViewController: UIViewController {
         circleBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
         view.addSubview(circleBox)
 
-        // square box
-        let squareBox = Checkbox(frame: CGRect(x: 50, y: 110, width: 25, height: 25))
+        // square
+        let squareBox = Checkbox(frame: CGRect(x: 30, y: 80, width: 25, height: 25))
         squareBox.borderStyle = .square
         squareBox.checkmarkStyle = .square
         squareBox.borderWidth = 1
-
-        // Closure example
         squareBox.valueChanged = { (value) in
             print("square checkbox value change: \(value)")
         }
         view.addSubview(squareBox)
+
+        // cross
+        let crossBox = Checkbox(frame: CGRect(x: 30, y: 120, width: 25, height: 25))
+        crossBox.borderStyle = .square
+        crossBox.checkmarkStyle = .cross
+        crossBox.checkmarkSize = 0.7
+        view.addSubview(crossBox)
     }
 
     // target action example
