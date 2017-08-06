@@ -21,9 +21,9 @@ Just drag Checkbox.swift into your project to start using it.
 ----
 
 You can create a new Checkbox either programatically:
-
-    let checkbox = Checkbox(frame: CGRect(x: 50, y: 50, width: 25, height: 25))
-
+```swift
+let checkbox = Checkbox(frame: CGRect(x: 50, y: 50, width: 25, height: 25))
+```
 Or using interface builder by dragging a `UIView` into your view controller and assigning its class to `Checkbox`. 
 
 After hooking up an outlet you can begin customization.
@@ -32,44 +32,44 @@ After hooking up an outlet you can begin customization.
 ----
 
 ### BorderStyle
-
-    checkbox.borderStyle = .circle
-    checkbox.borderStyle = .square
-
+```swift
+checkbox.borderStyle = .circle
+checkbox.borderStyle = .square
+```
 ### CheckmarkStyle
-
-    checkbox.checkmarkStyle = .circle
-    checkbox.checkmarkStyle = .square
-    checkbox.checkmarkStyle = .cross
-    checkbox.checkmarkStyle = .tick
-    
+```swift
+checkbox.checkmarkStyle = .circle
+checkbox.checkmarkStyle = .square
+checkbox.checkmarkStyle = .cross
+checkbox.checkmarkStyle = .tick
+```  
 ### Events
 There are two methods for detecting when a tap event has occured and the `isChecked` property has changed.
 
 **Add Target**
+```swift
+checkbox.addTarget(self, action: #selector(checkboxValueChanged(sender:)), for: .valueChanged)
 
-    checkbox.addTarget(self, action: #selector(checkboxValueChanged(sender:)), for: .valueChanged)
-    
-    .......
-    
-    @objc func checkboxValueChanged(sender: Checkbox) {
-        print("checkbox value change: \(sender.isChecked)")
-    }
-        
+.......
+
+@objc func checkboxValueChanged(sender: Checkbox) {
+    print("checkbox value change: \(sender.isChecked)")
+}
+```       
 **Closure**
-
-    checkbox.valueChanged = { (value) in
-        print("checkbox value change: \(value)")
-    }
-
+```swift
+checkbox.valueChanged = { (value) in
+    print("checkbox value change: \(value)")
+}
+```
 
 ### Touch Area
 Checkboxs can sometimes appear smaller than their UIButton and UISwitch counterparts which can make them difficult to activate. 
 
 SimpleCheckbox has a way for you to tune the touch raduis to extend beyond its frame.
-
-    checkbox.increasedTouchRadius = 5 // Default
-
+```swift
+checkbox.increasedTouchRadius = 5 // Default
+```
 🎩 Fancy Alternatives
 ----
 
