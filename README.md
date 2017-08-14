@@ -17,7 +17,7 @@ Just drag Checkbox.swift into your project to start using it.
 **NOTE**: Demo project requires Xcode 9.
 
 
-👩‍🍳 Useage
+👩‍🍳 Usage
 ----
 
 You can create a new Checkbox either programatically:
