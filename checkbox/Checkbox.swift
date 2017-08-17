@@ -2,9 +2,6 @@
 //  Checkbox.swift
 //  CheckboxDemo
 //
-//  Created by Beau Nouvelle on 5/8/17.
-//  Copyright © 2017 Beau Nouvelle. All rights reserved.
-//
 
 import Foundation
 import UIKit
