@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         circleBox.borderStyle = .circle
         circleBox.checkmarkStyle = .circle
         circleBox.borderWidth = 1
-        circleBox.borderColor = .blue
+        circleBox.uncheckedBorderColor = .lightGray
+        circleBox.checkedBorderColor = .blue
         circleBox.checkmarkSize = 0.8
         circleBox.checkmarkColor = .blue
         circleBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
