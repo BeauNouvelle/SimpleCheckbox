@@ -67,7 +67,8 @@ public class Checkbox: UIControl {
     public var checkmarkSize: CGFloat = 0.5
 
     /// **Default:** The current tintColor.
-    public var borderColor: UIColor!
+    public var uncheckedBorderColor: UIColor!
+    public var checkedBorderColor: UIColor!
 
     /// **Default:** The current tintColor.
     public var checkmarkColor: UIColor!
@@ -108,7 +109,8 @@ public class Checkbox: UIControl {
 
     private func setupDefaults() {
         backgroundColor = .white
-        borderColor = tintColor
+        uncheckedBorderColor = tintColor
+        checkedBorderColor = tintColor
         checkmarkColor = tintColor
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
@@ -135,7 +137,13 @@ public class Checkbox: UIControl {
 
     private func squareBorder(rect: CGRect) {
         let rectanglePath = UIBezierPath(rect: rect)
-        borderColor.setStroke()
+
+        if isChecked {
+            checkedBorderColor.setStroke()
+        } else {
+            uncheckedBorderColor.setStroke()
+        }
+
         rectanglePath.lineWidth = borderWidth
         rectanglePath.stroke()
     }
@@ -147,7 +155,13 @@ public class Checkbox: UIControl {
                                   height: rect.height-borderWidth)
 
         let ovalPath = UIBezierPath(ovalIn: adjustedRect)
-        borderColor.setStroke()
+
+        if isChecked {
+            checkedBorderColor.setStroke()
+        } else {
+            uncheckedBorderColor.setStroke()
+        }
+
         ovalPath.lineWidth = borderWidth / 2
         ovalPath.stroke()
     }
