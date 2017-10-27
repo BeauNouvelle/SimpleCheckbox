@@ -73,6 +73,9 @@ public class Checkbox: UIControl {
     /// **Default:** The current tintColor.
     public var checkmarkColor: UIColor!
 
+    /// **Default:** White.
+    public var checkboxBackgroundColor: UIColor! = .white
+
     /// Increases the controls touch area.
     ///
     /// Checkbox's tend to be smaller than regular UIButton elements
@@ -95,6 +98,10 @@ public class Checkbox: UIControl {
         didSet { setNeedsDisplay() }
     }
 
+    public var useHapticFeedback: Bool = true
+
+    private var feedbackGenerator: UIImpactFeedbackGenerator?
+
     // MARK: - Lifecycle
 
     public override init(frame: CGRect) {
@@ -108,13 +115,18 @@ public class Checkbox: UIControl {
     }
 
     private func setupDefaults() {
-        backgroundColor = .white
+        backgroundColor = UIColor.init(white: 1, alpha: 0)
         uncheckedBorderColor = tintColor
         checkedBorderColor = tintColor
         checkmarkColor = tintColor
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
         addGestureRecognizer(tapGesture)
+
+        if useHapticFeedback {
+            feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            feedbackGenerator?.prepare()
+        }
     }
 
     override public func draw(_ rect: CGRect) {
@@ -146,6 +158,8 @@ public class Checkbox: UIControl {
 
         rectanglePath.lineWidth = borderWidth
         rectanglePath.stroke()
+        checkboxBackgroundColor.setFill()
+        rectanglePath.fill()
     }
 
     private func circleBorder(rect: CGRect) {
@@ -164,6 +178,8 @@ public class Checkbox: UIControl {
 
         ovalPath.lineWidth = borderWidth / 2
         ovalPath.stroke()
+        checkboxBackgroundColor.setFill()
+        ovalPath.fill()
     }
 
     // MARK: - Checkmarks
@@ -233,6 +249,14 @@ public class Checkbox: UIControl {
         isChecked = !isChecked
         valueChanged?(isChecked)
         sendActions(for: .valueChanged)
+
+        if useHapticFeedback {
+            // Trigger impact feedback.
+            feedbackGenerator?.impactOccurred()
+
+            // Keep the generator in a prepared state.
+            feedbackGenerator?.prepare()
+        }
     }
 
     override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
@@ -246,3 +270,4 @@ public class Checkbox: UIControl {
     }
 
 }
+
