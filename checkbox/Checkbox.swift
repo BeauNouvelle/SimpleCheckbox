@@ -100,7 +100,7 @@ public class Checkbox: UIControl {
 
     public var useHapticFeedback: Bool = true
 
-    private var feedbackGenerator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    private var feedbackGenerator: UIImpactFeedbackGenerator?
 
     // MARK: - Lifecycle
 
@@ -123,8 +123,10 @@ public class Checkbox: UIControl {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
         addGestureRecognizer(tapGesture)
 
-        // Prepare the generator.
-        feedbackGenerator.prepare()
+        if useHapticFeedback {
+            feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            feedbackGenerator?.prepare()
+        }
     }
 
     override public func draw(_ rect: CGRect) {
@@ -248,12 +250,12 @@ public class Checkbox: UIControl {
         valueChanged?(isChecked)
         sendActions(for: .valueChanged)
 
-        if (useHapticFeedback) {
+        if useHapticFeedback {
             // Trigger impact feedback.
-            feedbackGenerator.impactOccurred()
+            feedbackGenerator?.impactOccurred()
 
             // Keep the generator in a prepared state.
-            feedbackGenerator.prepare()
+            feedbackGenerator?.prepare()
         }
     }
 
@@ -268,3 +270,4 @@ public class Checkbox: UIControl {
     }
 
 }
+
