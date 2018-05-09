@@ -30,8 +30,10 @@ class ViewController: UIViewController {
 
         // square
         let squareBox = Checkbox(frame: CGRect(x: 30, y: 80, width: 25, height: 25))
+        squareBox.tintColor = .black
         squareBox.borderStyle = .square
         squareBox.checkmarkStyle = .square
+        squareBox.uncheckedBorderColor = .lightGray
         squareBox.borderWidth = 1
         squareBox.valueChanged = { (value) in
             print("square checkbox value change: \(value)")

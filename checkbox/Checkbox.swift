@@ -139,11 +139,16 @@ public class Checkbox: UIControl {
     // MARK: - Borders
 
     private func drawBorder(shape: BorderStyle, in rect: CGRect) {
+        let adjustedRect = CGRect(x: borderWidth/2,
+                                  y: borderWidth/2,
+                                  width: rect.width-borderWidth,
+                                  height: rect.height-borderWidth)
+
         switch shape {
         case .circle:
-            circleBorder(rect: rect)
+            circleBorder(rect: adjustedRect)
         case .square:
-            squareBorder(rect: rect)
+            squareBorder(rect: adjustedRect)
         }
     }
 
@@ -163,12 +168,7 @@ public class Checkbox: UIControl {
     }
 
     private func circleBorder(rect: CGRect) {
-        let adjustedRect = CGRect(x: borderWidth/2,
-                                  y: borderWidth/2,
-                                  width: rect.width-borderWidth,
-                                  height: rect.height-borderWidth)
-
-        let ovalPath = UIBezierPath(ovalIn: adjustedRect)
+        let ovalPath = UIBezierPath(ovalIn: rect)
 
         if isChecked {
             checkedBorderColor.setStroke()
@@ -261,13 +261,9 @@ public class Checkbox: UIControl {
 
     override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         let relativeFrame = self.bounds
-        let hitTestEdgeInsets = UIEdgeInsetsMake(-increasedTouchRadius,
-                                                 -increasedTouchRadius,
-                                                 -increasedTouchRadius,
-                                                 -increasedTouchRadius)
+        let hitTestEdgeInsets = UIEdgeInsets(top: -increasedTouchRadius, left: -increasedTouchRadius, bottom: -increasedTouchRadius, right: -increasedTouchRadius)
         let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
         return hitFrame.contains(point)
     }
 
 }
-
