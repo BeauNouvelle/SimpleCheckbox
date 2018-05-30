@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SimpleCheckbox
 
 class ViewController: UIViewController {
 
