@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.name         = "SimpleCheckbox"
   s.version      = "1.5.0"
   s.summary      = "A simple checkbox."
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
 
   s.description  = <<-DESC
   SimpleCheckbox aims to accomplish what other iOS checkbox controls haven't. To be simple. There's no animations, no IBDesignable to slow down interface builder, and no performance heavy draw methods.
