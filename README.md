@@ -10,9 +10,9 @@ SimpleCheckbox aims to accomplish what other ios checkbox controls haven't. To b
 
 # ✅ Requirements
 
-* Xcode 9
+* Xcode 10
 * iOS 10+
-* Swift 4.1
+* Swift 4.2
 
 # 👨‍💻 Installation
 
@@ -21,10 +21,13 @@ SimpleCheckbox aims to accomplish what other ios checkbox controls haven't. To b
 Just drag Checkbox.swift into your project to start using it.
 
 ### Carthage
-Add `github "BeauNouvelle/SimpleCheckbox"` to your `Cartfile`.
+- Add `github "BeauNouvelle/SimpleCheckbox"` to your `Cartfile`.
 
 You can learn more about Carthage and get help setting it up here: https://github.com/Carthage/Carthage/
 
+### Cocoapods
+- Add `pod 'SimpleCheckbox'` to your pod file.
+- Don't forget to `import SimpleCheckbox` to the top of your files where you wish to use it. 
 
 # 👩‍🍳 Usage
 
