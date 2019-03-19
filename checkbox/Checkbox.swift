@@ -57,7 +57,7 @@ public class Checkbox: UIControl {
     /// in order appear similar next to other border styles.
     ///
     /// **Default:** `2`
-    public var borderWidth: CGFloat = 2
+    public var cborderWidth: CGFloat = 2
 
     /// Size of the center checkmark element.
     ///
@@ -139,10 +139,10 @@ public class Checkbox: UIControl {
     // MARK: - Borders
 
     private func drawBorder(shape: BorderStyle, in rect: CGRect) {
-        let adjustedRect = CGRect(x: borderWidth/2,
-                                  y: borderWidth/2,
-                                  width: rect.width-borderWidth,
-                                  height: rect.height-borderWidth)
+        let adjustedRect = CGRect(x: cborderWidth/2,
+                                  y: cborderWidth/2,
+                                  width: rect.width-cborderWidth,
+                                  height: rect.height-cborderWidth)
 
         switch shape {
         case .circle:
@@ -161,7 +161,7 @@ public class Checkbox: UIControl {
             uncheckedBorderColor.setStroke()
         }
 
-        rectanglePath.lineWidth = borderWidth
+        rectanglePath.lineWidth = cborderWidth
         rectanglePath.stroke()
         checkboxBackgroundColor.setFill()
         rectanglePath.fill()
@@ -176,7 +176,7 @@ public class Checkbox: UIControl {
             uncheckedBorderColor.setStroke()
         }
 
-        ovalPath.lineWidth = borderWidth / 2
+        ovalPath.lineWidth = cborderWidth / 2
         ovalPath.stroke()
         checkboxBackgroundColor.setFill()
         ovalPath.fill()
