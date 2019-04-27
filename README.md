@@ -25,10 +25,6 @@ Just drag Checkbox.swift into your project to start using it.
 
 You can learn more about Carthage and get help setting it up here: https://github.com/Carthage/Carthage/
 
-### Cocoapods
-- Add `pod 'SimpleCheckbox'` to your pod file.
-- Don't forget to `import SimpleCheckbox` to the top of your files where you wish to use it. 
-
 # 👩‍🍳 Usage
 
 You can create a new Checkbox either programatically:
