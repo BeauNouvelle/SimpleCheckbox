@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         squareBox.uncheckedBorderColor = .lightGray
         squareBox.borderWidth = 1
         squareBox.valueChanged = { (value) in
-            print("square checkbox value change: \(value)")
+            print("squarebox value change: \(value)")
         }
         view.addSubview(squareBox)
 
@@ -46,6 +46,10 @@ class ViewController: UIViewController {
         crossBox.borderStyle = .square
         crossBox.checkmarkStyle = .cross
         crossBox.checkmarkSize = 0.7
+        crossBox.cornerRadius = 5
+        crossBox.valueChanged = { (value) in
+            print("crossBox value change: \(value)")
+        }
         view.addSubview(crossBox)
 
         // tick
@@ -53,12 +57,15 @@ class ViewController: UIViewController {
         tickBox.borderStyle = .square
         tickBox.checkmarkStyle = .tick
         tickBox.checkmarkSize = 0.7
+        tickBox.valueChanged = { (value) in
+            print("tickBox value change: \(value)")
+        }
         view.addSubview(tickBox)
     }
 
     // target action example
     @objc func circleBoxValueChanged(sender: Checkbox) {
-        print("circle box value change: \(sender.isChecked)")
+        print("circleBox value change: \(sender.isChecked)")
     }
 
 }
