@@ -66,15 +66,33 @@ public class Checkbox: UIControl {
     /// **Default:** `0.5`
     public var checkmarkSize: CGFloat = 0.5
 
+    /// The checboxes border color in its unchecked state.
+    ///
     /// **Default:** The current tintColor.
     public var uncheckedBorderColor: UIColor!
+    
+    /// The checboxes border color in its checked state.
+    ///
+    /// **Default:** The current tintColor.
     public var checkedBorderColor: UIColor!
 
     /// **Default:** The current tintColor.
     public var checkmarkColor: UIColor!
 
     /// **Default:** White.
+    @available(swift, obsoleted: 4.1, renamed: "checkboxFillColor", message: "Defaults to a clear color")
     public var checkboxBackgroundColor: UIColor! = .white
+    
+    /// The checkboxes fill color.
+    ///
+    /// **Default:** `UIColoe.Clear`
+    public var checkboxFillColor: UIColor = .clear
+    
+    /// Sets the corner radius for the checkbox border.
+    ///
+    ///**Default:** `0.0`
+    /// - Note: Only applies to checkboxes with `BorderStyle.square`
+    public var cornerRadius: CGFloat = 0.0
 
     /// Increases the controls touch area.
     ///
@@ -98,6 +116,9 @@ public class Checkbox: UIControl {
         didSet { setNeedsDisplay() }
     }
 
+    /// Determines if tapping the checkbox generates haptic feedback to the user.
+    ///
+    /// **Default:** `true`
     public var useHapticFeedback: Bool = true
 
     private var feedbackGenerator: UIImpactFeedbackGenerator?
@@ -151,9 +172,9 @@ public class Checkbox: UIControl {
             squareBorder(rect: adjustedRect)
         }
     }
-
+    
     private func squareBorder(rect: CGRect) {
-        let rectanglePath = UIBezierPath(rect: rect)
+        let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
 
         if isChecked {
             checkedBorderColor.setStroke()
@@ -163,7 +184,7 @@ public class Checkbox: UIControl {
 
         rectanglePath.lineWidth = borderWidth
         rectanglePath.stroke()
-        checkboxBackgroundColor.setFill()
+        checkboxFillColor.setFill()
         rectanglePath.fill()
     }
 
@@ -178,7 +199,7 @@ public class Checkbox: UIControl {
 
         ovalPath.lineWidth = borderWidth / 2
         ovalPath.stroke()
-        checkboxBackgroundColor.setFill()
+        checkboxFillColor.setFill()
         ovalPath.fill()
     }
 
