@@ -92,7 +92,7 @@ public class Checkbox: UIControl {
     ///
     ///**Default:** `0.0`
     /// - Note: Only applies to checkboxes with `BorderStyle.square`
-    public var cornerRadius: CGFloat = 0.0
+    public var checkboxCornerRadius: CGFloat = 0.0
 
     /// Increases the controls touch area.
     ///
@@ -174,7 +174,7 @@ public class Checkbox: UIControl {
     }
     
     private func squareBorder(rect: CGRect) {
-        let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: checkboxCornerRadius)
 
         if isChecked {
             checkedBorderColor.setStroke()
