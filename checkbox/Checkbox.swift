@@ -57,7 +57,7 @@ public class Checkbox: UIControl {
     /// in order appear similar next to other border styles.
     ///
     /// **Default:** `2`
-    public var borderWidth: CGFloat = 2
+    public var borderLineWidth: CGFloat = 2
 
     /// Size of the center checkmark element.
     ///
@@ -92,7 +92,7 @@ public class Checkbox: UIControl {
     ///
     ///**Default:** `0.0`
     /// - Note: Only applies to checkboxes with `BorderStyle.square`
-    public var cornerRadius: CGFloat = 0.0
+    public var borderCornerRadius: CGFloat = 0.0
 
     /// Increases the controls touch area.
     ///
@@ -160,10 +160,10 @@ public class Checkbox: UIControl {
     // MARK: - Borders
 
     private func drawBorder(shape: BorderStyle, in rect: CGRect) {
-        let adjustedRect = CGRect(x: borderWidth/2,
-                                  y: borderWidth/2,
-                                  width: rect.width-borderWidth,
-                                  height: rect.height-borderWidth)
+        let adjustedRect = CGRect(x: borderLineWidth/2,
+                                  y: borderLineWidth/2,
+                                  width: rect.width-borderLineWidth,
+                                  height: rect.height-borderLineWidth)
 
         switch shape {
         case .circle:
@@ -174,7 +174,7 @@ public class Checkbox: UIControl {
     }
     
     private func squareBorder(rect: CGRect) {
-        let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: borderCornerRadius)
 
         if isChecked {
             checkedBorderColor.setStroke()
@@ -182,7 +182,7 @@ public class Checkbox: UIControl {
             uncheckedBorderColor.setStroke()
         }
 
-        rectanglePath.lineWidth = borderWidth
+        rectanglePath.lineWidth = borderLineWidth
         rectanglePath.stroke()
         checkboxFillColor.setFill()
         rectanglePath.fill()
@@ -197,7 +197,7 @@ public class Checkbox: UIControl {
             uncheckedBorderColor.setStroke()
         }
 
-        ovalPath.lineWidth = borderWidth / 2
+        ovalPath.lineWidth = borderLineWidth / 2
         ovalPath.stroke()
         checkboxFillColor.setFill()
         ovalPath.fill()

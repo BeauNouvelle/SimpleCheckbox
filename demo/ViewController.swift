@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     func addCheckboxSubviews() {
         // circle
         let circleBox = Checkbox(frame: CGRect(x: 30, y: 40, width: 25, height: 25))
-        circleBox.borderStyle = .circle
+        circleBox.checkboxBorderStyle = .circle
         circleBox.checkmarkStyle = .circle
-        circleBox.borderWidth = 1
+        circleBox.checkboxBorderWidth = 1
         circleBox.uncheckedBorderColor = .lightGray
         circleBox.checkedBorderColor = .blue
         circleBox.checkmarkSize = 0.8
@@ -32,10 +32,10 @@ class ViewController: UIViewController {
         // square
         let squareBox = Checkbox(frame: CGRect(x: 30, y: 80, width: 25, height: 25))
         squareBox.tintColor = .black
-        squareBox.borderStyle = .square
+        squareBox.checkboxBorderStyle = .square
         squareBox.checkmarkStyle = .square
         squareBox.uncheckedBorderColor = .lightGray
-        squareBox.borderWidth = 1
+        squareBox.checkboxBorderWidth = 1
         squareBox.valueChanged = { (value) in
             print("squarebox value change: \(value)")
         }
@@ -43,10 +43,10 @@ class ViewController: UIViewController {
 
         // cross
         let crossBox = Checkbox(frame: CGRect(x: 30, y: 120, width: 25, height: 25))
-        crossBox.borderStyle = .square
+        crossBox.checkboxBorderStyle = .square
         crossBox.checkmarkStyle = .cross
         crossBox.checkmarkSize = 0.7
-        crossBox.cornerRadius = 5
+        crossBox.checkboxCornerRadius = 5
         crossBox.valueChanged = { (value) in
             print("crossBox value change: \(value)")
         }
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
 
         // tick
         let tickBox = Checkbox(frame: CGRect(x: 30, y: 160, width: 25, height: 25))
-        tickBox.borderStyle = .square
+        tickBox.checkboxBorderStyle = .square
         tickBox.checkmarkStyle = .tick
         tickBox.checkmarkSize = 0.7
         tickBox.valueChanged = { (value) in
