@@ -25,11 +25,6 @@ Just drag Checkbox.swift into your project to start using it.
 
 You can learn more about Carthage and get help setting it up here: https://github.com/Carthage/Carthage/
 
-### Cocoapods
-- Add `pod 'SimpleCheckbox'` to your `Podfile`.
-
-You can learn more about Cocoapods and get help setting it up here: https://cocoapods.org
-
 ### Swift Package Manager
 > Would love some help with this one.
 
@@ -112,3 +107,6 @@ checkbox.increasedTouchRadius = 5 // Default
 [**Objective C** — BEMCheckbox](https://github.com/Boris-Em/BEMCheckBox)
 
 [**Swift** — M13Checkbox](https://github.com/Marxon13/M13Checkbox)
+
+### Cocoapods
+> I'm unable to continue supporting cocoapods with this project as I no longer have access the email account that was registered with this pod. All attempts to contact the cocoapods team to claim SimpleCheckbox pod have been ignored.
