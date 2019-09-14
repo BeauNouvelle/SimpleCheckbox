@@ -12,7 +12,7 @@ SimpleCheckbox aims to accomplish what other ios checkbox controls haven't. To b
 
 * Xcode 10
 * iOS 10+
-* Swift 4.2
+* Swift 5.1
 
 # 👨‍💻 Installation
 
@@ -85,15 +85,16 @@ checkbox.addTarget(self, action: #selector(checkboxValueChanged(sender:)), for: 
 ```       
 ### Closure
 ```swift
-checkbox.valueChanged = { (value) in
-    print("checkbox value change: \(value)")
+checkbox.valueChanged = { (isChecked) in
+    print("checkbox is checked: \(isChecked)")
 }
 ```
 
 ## Touch Area
 Checkboxs can sometimes appear smaller than their UIButton and UISwitch counterparts which can make them difficult to activate. 
 
-SimpleCheckbox has a way for you to tune the touch raduis to extend beyond its frame.
+SimpleCheckbox has a way for you to tune the touch raduis to extend beyond its frame. Setting increasedTouchRadius will increase the touch radius by that amount.
+
 ```swift
 checkbox.increasedTouchRadius = 5 // Default
 ```
