@@ -14,7 +14,7 @@ public class Checkbox: UIControl {
     // MARK: - Enums
 
     /// Shape of the center checkmark that appears when `Checkbox.isChecked == true`.
-    public enum CheckmarkStyle: String {
+    @objc public enum CheckmarkStyle: String {
         /// ■
         case square
         /// ●
@@ -28,7 +28,8 @@ public class Checkbox: UIControl {
     /// Shape of the outside box containing the checkmarks contents.
     ///
     /// Used as a visual indication of where the user can tap.
-    public enum BorderStyle: String {
+
+    @objc public enum BorderStyle: String {
         /// ▢
         case square
         /// ◯
@@ -40,7 +41,7 @@ public class Checkbox: UIControl {
     /// Shape of the center checkmark that appears when `Checkbox.isChecked == true`.
     ///
     /// **Default:** `CheckmarkStyle.square`
-    public var checkmarkStyle: CheckmarkStyle = .square
+    @objc dynamic public var checkmarkStyle: CheckmarkStyle = .square
     @IBInspectable private var checkmarkStyleIB: String {
         set {
             checkmarkStyle = CheckmarkStyle(rawValue: newValue) ?? .square
@@ -55,7 +56,7 @@ public class Checkbox: UIControl {
     /// Used as a visual indication of where the user can tap.
     ///
     /// **Default:** `BorderStyle.square`
-    public var borderStyle: BorderStyle = .square
+    @objc dynamic public var borderStyle: BorderStyle = .square
     @IBInspectable private var borderStyleIB: String {
         set {
             borderStyle = BorderStyle(rawValue: newValue) ?? .square
