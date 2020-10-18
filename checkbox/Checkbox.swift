@@ -9,7 +9,7 @@ import UIKit
 /// Checkbox is a simple, animation free checkbox and UISwitch alternative designed
 /// to be performant and easy to implement.
 @IBDesignable
-public class Checkbox: UIControl {
+open class Checkbox: UIControl {
 
     // MARK: - Enums
 
