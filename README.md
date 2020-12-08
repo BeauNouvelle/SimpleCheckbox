@@ -30,7 +30,7 @@ You can learn more about Carthage and get help setting it up [here](https://gith
 - Add `import SimpleCheckbox` to the top of your files in where you wish to use it.
 
 ### Swift Package Manager
-> Would love some help with this one.
+- Add `https://github.com/BeauNouvelle/SimpleCheckbox.git` to your package file.
 
 # 👩‍🍳 Usage
 
