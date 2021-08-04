@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SimpleCheckbox"
-  s.version      = "2.1.0"
+  s.version      = "2.2.2"
   s.summary      = "A simple checkbox."
   s.swift_version = '5.1'
 
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.author    = "Beau Nouvelle"
   s.social_media_url   = "http://twitter.com/BeauNouvelle"
 
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "11.0"
 
   s.source       = { :git => "https://github.com/BeauNouvelle/SimpleCheckbox.git", :tag => "#{s.version}" }
 
