@@ -139,8 +139,8 @@ open class Checkbox: UIControl {
     /// **Default:** `true`
     @IBInspectable public var useHapticFeedback: Bool = true
 
+    @available(tvOS, unavailable)
     private var feedbackGenerator: UIImpactFeedbackGenerator?
-
     // MARK: - Lifecycle
 
     public override init(frame: CGRect) {
@@ -161,8 +161,8 @@ open class Checkbox: UIControl {
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:)))
         addGestureRecognizer(tapGesture)
-
-        if useHapticFeedback {
+        
+        if useHapticFeedback, #available(iOS 11, *), #available(macOS 13, *) {
             feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
             feedbackGenerator?.prepare()
         }
