@@ -61,6 +61,16 @@ class ViewController: UIViewController {
             print("tickBox value change: \(value)")
         }
         view.addSubview(tickBox)
+
+        // Emoji
+        let emojiBox = Checkbox(frame: CGRect(x: 30, y: 160, width: 25, height: 25))
+        emojiBox.borderStyle = .square
+        emojiBox.emoji = "🥰"
+        emojiBox.checkmarkSize = 0.7
+        emojiBox.valueChanged = { (value) in
+            print("emojiBox value change: \(value)")
+        }
+        view.addSubview(emojiBox)
     }
 
     // target action example
