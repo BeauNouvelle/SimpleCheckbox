@@ -26,8 +26,8 @@ Just drag Checkbox.swift into your project to start using it.
 You can learn more about Carthage and get help setting it up [here](https://github.com/Carthage/Carthage/).
 
 ### Cocoapods
-- Add pod `SimpleCheckbox` to your pod file.
-- Add `import SimpleCheckbox` to the top of your files in where you wish to use it.
+Podspec is present, however with SPM out for quite a while now, Cocoapods is no longer officially supported.
+Latest supported version of SimpleCheckbox is 2.2.2
 
 ### Swift Package Manager
 - Add `https://github.com/BeauNouvelle/SimpleCheckbox.git` to your package file.
@@ -72,6 +72,13 @@ checkbox.checkmarkStyle = .cross
 checkbox.checkmarkStyle = .tick
 ```
 
+### Emoji
+```Swift
+checkbox.emoji = "❌"
+```
+NOTE: Setting the emoji value will cause simple checkbox to ignore the checkmarkStyle. 
+Any string will work, but only 1-3 characters may be displayed.
+
 ## Haptic Feedback
 ```swift
 checkbox.useHapticFeedback = true
@@ -111,6 +118,3 @@ checkbox.increasedTouchRadius = 5 // Default
 [**Objective C** — BEMCheckbox](https://github.com/Boris-Em/BEMCheckBox)
 
 [**Swift** — M13Checkbox](https://github.com/Marxon13/M13Checkbox)
-
-### Cocoapods
-> I'm unable to continue supporting cocoapods with this project as I no longer have access the email account that was registered with this pod. All attempts to contact the cocoapods team to claim SimpleCheckbox pod have been ignored.

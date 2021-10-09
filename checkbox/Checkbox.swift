@@ -97,6 +97,9 @@ open class Checkbox: UIControl {
     /// **Default:** The current tintColor.
     @IBInspectable public var checkmarkColor: UIColor!
 
+    /// **Default:** Replaces the checkmark style with an emoji.
+    @IBInspectable public var emoji: String?
+
     /// **Default:** White.
     @available(swift, obsoleted: 4.1, renamed: "checkboxFillColor", message: "Defaults to a clear color")
     public var checkboxBackgroundColor: UIColor! = .white
@@ -170,7 +173,10 @@ open class Checkbox: UIControl {
 
     override public func draw(_ rect: CGRect) {
         drawBorder(shape: borderStyle, in: rect)
-        if isChecked {
+        guard isChecked else { return }
+        if let unwrappedEmoji = emoji {
+            drawEmoji(unwrappedEmoji, in: rect)
+        } else {
             drawCheckmark(style: checkmarkStyle, in: rect)
         }
     }
@@ -219,6 +225,17 @@ open class Checkbox: UIControl {
         ovalPath.stroke()
         checkboxFillColor.setFill()
         ovalPath.fill()
+    }
+
+    // MARK: - Emoji
+
+    private func drawEmoji(_ value: String, in rect: CGRect) {
+        let font = UIFont.systemFont(ofSize: rect.height/1.4)
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.center
+        let attributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: style]
+        let textRect = CGRect(x: 0, y: (rect.height-font.lineHeight)/2, width: rect.width, height: rect.height)
+        (value as NSString).draw(in: textRect, withAttributes: attributes)
     }
 
     // MARK: - Checkmarks
