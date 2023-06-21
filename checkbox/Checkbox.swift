@@ -99,14 +99,10 @@ open class Checkbox: UIControl {
 
     /// **Default:** Replaces the checkmark style with an emoji.
     @IBInspectable public var emoji: String?
-
-    /// **Default:** White.
-    @available(swift, obsoleted: 4.1, renamed: "checkboxFillColor", message: "Defaults to a clear color")
-    public var checkboxBackgroundColor: UIColor! = .white
     
     /// The checkboxes fill color.
     ///
-    /// **Default:** `UIColoe.Clear`
+    /// **Default:** `UIColor.Clear`
     @IBInspectable public var checkboxFillColor: UIColor = .clear
     
     /// Sets the corner radius for the checkbox border.
