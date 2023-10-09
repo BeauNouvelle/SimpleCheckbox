@@ -24,7 +24,8 @@ Pod::Spec.new do |s|
   s.author    = "Beau Nouvelle"
   s.social_media_url   = "http://twitter.com/BeauNouvelle"
 
-  s.platform     = :ios, "11.0"
+  s.ios.deployment_target = "11.0"
+  s.tvos.deployment_target = "11.0"
 
   s.source       = { :git => "https://github.com/BeauNouvelle/SimpleCheckbox.git", :tag => "#{s.version}" }
 
