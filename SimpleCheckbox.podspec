@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SimpleCheckbox"
-  s.version      = "2.2.2"
+  s.version      = "2.5.0"
   s.summary      = "A simple checkbox."
   s.swift_version = '5.1'
 
